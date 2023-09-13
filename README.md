@@ -23,6 +23,7 @@ Once you've downloaded your data the process there will vary depending on what n
 # Improvement ideas
 <ul>
 <li>Finetune interference params for model (top_k, temperature...) (you can help too!)</li>
-<li>Large version of model</li>
-<li>Some midis are 10x the playback speed of what it should be (AI emulates this behavior)</li>
+<li>Train gpt-2 774m or model of large context size</li>
+<li><s>Large version of model</s></li>
+<li><s>Some midis are 10x the playback speed of what it should be (AI emulates this behavior)</s></li>
 </ul>
