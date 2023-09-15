@@ -2,7 +2,7 @@
 Open source WIP recreation of OpenAi's musenet. This supports many of the features of the original Musenet by OpenAI such as multiple track support (altough not guided to specific instrument), 4 levels of dynamics, as well as the note start, length, and note.
 
 # Generating
-Here is the <a href="https://colab.research.google.com/drive/1oo02rtMhJLSoo1EUnOmS7a07gRtqsYMz">Google Colab notebook</a> for generating.
+Here is the <a href="https://colab.research.google.com/drive/1RX83Ga4lG-wox03wbws0hsTn4WmOtGsq?usp=sharing">Google Colab notebook</a> for generating.
 
 # Samples
 
