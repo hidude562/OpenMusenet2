@@ -1,29 +1,18 @@
-# OpenMusenet2
-Open source WIP recreation of OpenAi's musenet. This supports many of the features of the original Musenet by OpenAI such as multiple track support (altough not guided to specific instrument), 4 levels of dynamics, as well as the note start, length, and note.
+# Announcing... OpenMusenet3!
+An expanded and enhanced version of OpenAI's MuseNet, with modern architecure and (suspected to be) larger. Compared to musenet, At least to me, it is noticably more coherent, and its signicantly more creative.
 
-# Generating
-Here is the <a href="https://colab.research.google.com/drive/1RX83Ga4lG-wox03wbws0hsTn4WmOtGsq?usp=sharing">Google Colab notebook</a> for generating.
+## Samples
 
-# Samples
+## WIP
+In OpenMusenet3 folder, there is a work in progress library in the works. If you want to use it right now, download it and navigate to examples and you can run the scripts. A notebook will be released eventually
 
-Fur Elise
-https://github.com/hidude562/OpenMusenet2/assets/82677882/692dd270-8ffd-4967-9af7-d4aa612fbaf8
+## Architecture
+- Trained for 4096 context tokens (Model is able to support up to 32k)
+- 12 instruments (Unlike Musenet, the instruments aren't categorized by section, its basically part numbers)
+- 4 dynamics
+- Qwen-2 model, but with GPT-2 tokenizer?? (Works weirdly well)
 
-Allca turra
-https://github.com/hidude562/OpenMusenet2/assets/82677882/6010b13e-1597-4604-8489-1156b0362cf6
+TODO: Update
 
-# Technical things
-The current model as of writing this is "OpenMusenet2.1", which is a finetuned version of gpt-2 medium on ~10,000 songs (Around 20kb per song). I don't remember where i got the dataset from (I had actually downloaded it the year prior), but it is ~169,000 midi files of types 0 and 1 with multiple tracks, tempo changes, etc. (although tempo changes and stuff are ignored)
-
-# Training your own model/dataset
-Go to "Notebooks" -> "Converters" -> "midiFormater.ipynb" and you can open that with Google Colab (or whatever notebook editor you use). The process from there should be relatively simple.
-
-Once you've downloaded your data the process there will vary depending on what notebook you are using to train so i can't really ellaborate on that.
-
-# Improvement ideas
-<ul>
-<li>Finetune interference params for model (top_k, temperature...) (you can help too!)</li>
-<li>Train gpt-2 774m or model of large context size</li>
-<li><s>Large version of model</s></li>
-<li><s>Some midis are 10x the playback speed of what it should be (AI emulates this behavior)</s></li>
-</ul>
+# OpenMusenet2 (Legacy)
+Open source WIP recreation of OpenAi's musenet. This supports many of the features of the original Musenet by OpenAI such as multiple track support (altough not guided to specific instrument), 4 levels of dynamics, as well as the note start, length, and note. You can find more info in the OpenMusenet2 folder
