@@ -1,5 +1,5 @@
 import mido
-import utils
+import OpenMusenet3.utils
 import copy
 
 # Mido objects, but with extra capibility added for OpenMusenet things
