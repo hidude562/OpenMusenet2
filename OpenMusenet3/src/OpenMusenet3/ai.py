@@ -57,9 +57,3 @@ class AI:
             midiAddedGeneration._appendAIToSelf(generation)
             midiConvertedGenerations.append(midiAddedGeneration)
         return midiConvertedGenerations
-
-ai = AI("kobimusic/esecutore-4-0619")
-mid = MIDI("test2.mid")
-generations = ai.continueMusic("classical", mid)
-for i, generation in enumerate(generations):
-    generation.save(f"AIPiece{i}.mid")
