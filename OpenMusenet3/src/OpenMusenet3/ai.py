@@ -2,7 +2,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 import copy
 import huggingface_hub
 
-from midi import MIDI
+from OpenMusenet3.midi import MIDI
 
 class AI:
     def __init__(self, modelName):
