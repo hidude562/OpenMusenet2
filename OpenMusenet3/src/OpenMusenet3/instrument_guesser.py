@@ -1,3 +1,5 @@
+# TODO: The model labels the relative tracks and assigns them a guess of the instrument
+
 from transformers import pipeline
 
 class InstrumentGuesser:

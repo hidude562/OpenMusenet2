@@ -1,5 +1,5 @@
 import mido
-import OpenMusenet3.utils
+import OpenMusenet3.utils as utils
 import copy
 
 # Mido objects, but with extra capibility added for OpenMusenet things
@@ -11,7 +11,6 @@ class MIDI(mido.MidiFile):
             super().__init__()
             track = mido.MidiTrack()
             self.tracks.append(track)
-        print(self.ticks_per_beat)
         self._changeToTicksPerBeat(480)
 
     def _changeToTicksPerBeat(self, newTPB):

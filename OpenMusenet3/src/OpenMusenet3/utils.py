@@ -76,5 +76,4 @@ def parseNote(note: str):
                 strBuilder = ""
             if(token != " "):
                 delimitedNote.append(token)
-    print(delimitedNote)
     return {"start": int(delimitedNote[0]), "velocity": toMidiVelocity(delimitedNote[1]), "length": int(delimitedNote[2]), "track": toMIDIChannel(delimitedNote[3]), "note": int(delimitedNote[4])}

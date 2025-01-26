@@ -13,16 +13,16 @@ class AI:
     """
     Returns the AI Format, (what is newly generated)
     """
-    def _generateRawNoStream(self, txt: str, batch=4) -> str:
+    def _generateRawNoStream(self, txt: str, batch_size=1, new_tokens=2000) -> str:
         inputs = self.tokenizer(txt, return_tensors="pt").input_ids
         output = self.model.generate(
             inputs,
             use_cache=False,
-            max_new_tokens=2000,
+            max_new_tokens=new_tokens,
             do_sample=True,
             temperature=0.89,
             top_p=1.0,
-            num_return_sequences=batch,
+            num_return_sequences=batch_size,
         )
         decoded = self.tokenizer.batch_decode(output[:, inputs.shape[1]:])
         return decoded
@@ -45,14 +45,13 @@ class AI:
     """
     TODO: Stream outputs
     """
-    def continueMusic(self, prompt: str, midi: MIDI) -> list[MIDI]:
+    def continueMusic(self, prompt: str, midi: MIDI, batch_size=1, new_tokens=2000) -> list[MIDI]:
         formatted = self._formatMidiAndPrompt(prompt, midi)
         formatted = self._abridgeInputs(formatted)
-        generations = self._generateRawNoStream(formatted)
+        generations = self._generateRawNoStream(formatted, batch_size, new_tokens)
         midiConvertedGenerations = []
         for generation in generations:
             generation = generation[:generation.rfind("|")]
-            print(generation)
             midiAddedGeneration = copy.deepcopy(midi)
             midiAddedGeneration._appendAIToSelf(generation)
             midiConvertedGenerations.append(midiAddedGeneration)
