@@ -1,6 +1,5 @@
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import copy
-import huggingface_hub
 
 from OpenMusenet3.midi import MIDI
 

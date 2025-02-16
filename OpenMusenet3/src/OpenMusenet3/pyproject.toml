@@ -1,0 +1,19 @@
+[build-system]
+requires = ["transformers", "mido"]
+
+[project]
+name = "OpenMusenet3"
+version = "0.0.1"
+description = "An AI MIDI (Music) generator."
+readme = "README.md"
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["AI midi", "musenet", "AI Music"]
+requires-python = ">=3.9"
+
+[project.urls]
+Homepage = "https://github.com/hidude562/OpenMusenet2"
