@@ -1,7 +1,7 @@
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import copy
 
-from OpenMusenet3.midi import MIDI
+from midi import MIDI
 
 class AI:
     def __init__(self, modelName):

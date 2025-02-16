@@ -1,5 +1,4 @@
-from OpenMusenet3.ai import AI
-from OpenMusenet3.midi import MIDI
+from src.OpenMusenet3.ai import AI
 
 ai = AI("kobimusic/esecutore-4-0619")
 mid = MIDI() # Pass in midi file, like "test2.mid"
