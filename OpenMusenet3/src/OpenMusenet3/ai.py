@@ -1,19 +1,25 @@
+import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import copy
 
-from midi import MIDI
+from src.OpenMusenet3.midi import MIDI
 
 class AI:
-    def __init__(self, modelName):
+    def __init__(self, modelName, device='cuda'):
         self.modelName = modelName
         self.model = AutoModelForCausalLM.from_pretrained(modelName)
         self.tokenizer = AutoTokenizer.from_pretrained(self.modelName)
+        self.device = device
+
+        self.model.to(self.device)
 
     """
     Returns the AI Format, (what is newly generated)
     """
     def _generateRawNoStream(self, txt: str, batch_size=1, new_tokens=2000) -> str:
-        inputs = self.tokenizer(txt, return_tensors="pt").input_ids
+        inputs = torch.tensor(self.tokenizer.encode(txt)).unsqueeze(0)
+        inputs = inputs.to(self.device)
+
         output = self.model.generate(
             inputs,
             use_cache=False,
