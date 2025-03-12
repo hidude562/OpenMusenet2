@@ -17,7 +17,7 @@ class AI:
     """
     Returns the AI Format, (what is newly generated)
     """
-    def _generateRawNoStream(self, txt: str, batch_size=1, new_tokens=2000) -> str:
+    def _generateRawNoStream(self, txt: str, batch_size=1, new_tokens=2000, temperature=0.86) -> str:
         inputs = torch.tensor(self.tokenizer.encode(txt)).unsqueeze(0)
         inputs = inputs.to(self.device)
         gen_length = len(inputs[0])
@@ -28,7 +28,7 @@ class AI:
             inputs,
             max_length=gen_length+new_tokens,
             do_sample=True,
-            temperature=0.89,
+            temperature=temperature,
             top_p=1.0,
             num_return_sequences=batch_size,
         )
@@ -53,10 +53,10 @@ class AI:
     """
     TODO: Stream outputs
     """
-    def continueMusic(self, prompt: str, midi: MIDI, batch_size=1, new_tokens=2000) -> list[MIDI]:
+    def continueMusic(self, prompt: str, midi: MIDI, batch_size=1, new_tokens=2000, temperature=0.86) -> list[MIDI]:
         formatted = self._formatMidiAndPrompt(prompt, midi)
         formatted = self._abridgeInputs(formatted)
-        generations = self._generateRawNoStream(formatted, batch_size, new_tokens)
+        generations = self._generateRawNoStream(formatted, batch_size, new_tokens, temperature)
         midiConvertedGenerations = []
         for generation in generations:
             generation = generation[:generation.rfind("|")]
