@@ -8,7 +8,7 @@ class AI:
     def __init__(self, modelName, device='cuda'):
         self.modelName = modelName
         self.tokenizer = GPT2TokenizerFast.from_pretrained(self.modelName, padding_side='right')
-        self.model = Qwen2ForCausalLM.from_pretrained(self.modelName)
+        self.model = Qwen2ForCausalLM.from_pretrained(self.modelName, load_in_16_bit=True)
 
         self.device = device
 
@@ -26,10 +26,12 @@ class AI:
 
         output = self.model.generate(
             inputs,
-            max_length=gen_length+new_tokens,
+            max_length=gen_length + new_tokens,
             do_sample=True,
             temperature=temperature,
             top_p=1.0,
+            repetition_penalty=1.0,
+            top_k=20,
             num_return_sequences=batch_size,
         )
         decoded = self.tokenizer.batch_decode(output[:, inputs.shape[1]:])
