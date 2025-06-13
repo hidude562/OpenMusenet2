@@ -1,0 +1,14 @@
+Metadata-Version: 2.4
+Name: OpenMusenet3
+Version: 0.0.1
+Summary: An AI MIDI (Music) generator.
+Project-URL: Homepage, https://github.com/hidude562/OpenMusenet2
+Keywords: AI midi,musenet,AI Music
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+Requires-Dist: transformers[torch]
+Requires-Dist: mido

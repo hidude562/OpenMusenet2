@@ -1,5 +1,6 @@
 [build-system]
-requires = ["transformers", "mido"]
+requires = ["setuptools>=40.8.0", "wheel"]
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "OpenMusenet3"
@@ -14,6 +15,15 @@ classifiers = [
 ]
 keywords = ["AI midi", "musenet", "AI Music"]
 requires-python = ">=3.9"
+dependencies = [
+    "requests",
+    "transformers[torch]",
+    "mido"
+]
 
 [project.urls]
 Homepage = "https://github.com/hidude562/OpenMusenet2"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["ai*", "instrument_guesser*", "midi*", "utils*"]

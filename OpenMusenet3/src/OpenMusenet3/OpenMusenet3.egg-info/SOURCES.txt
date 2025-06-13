@@ -1,0 +1,6 @@
+pyproject.toml
+OpenMusenet3.egg-info/PKG-INFO
+OpenMusenet3.egg-info/SOURCES.txt
+OpenMusenet3.egg-info/dependency_links.txt
+OpenMusenet3.egg-info/requires.txt
+OpenMusenet3.egg-info/top_level.txt
