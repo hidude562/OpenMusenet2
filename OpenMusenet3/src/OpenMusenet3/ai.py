@@ -8,7 +8,7 @@ class AI:
     def __init__(self, modelName, device='cuda'):
         self.modelName = modelName
         self.tokenizer = GPT2TokenizerFast.from_pretrained(self.modelName, padding_side='right')
-        self.model = Qwen2ForCausalLM.from_pretrained(self.modelName, load_in_16_bit=True)
+        AutoModelForCausalLM.from_pretrained(model_name)
 
         self.device = device
 
